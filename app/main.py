@@ -1,15 +1,14 @@
 import random
 import matplotlib.pyplot as plt
 
-num_simulations1 = 10000
 
-
-def flip_coin(num_simulations: int) -> dict:
+def flip_coin(num_simulations: int = 10000) -> dict:
     counts = {i: 0 for i in range(11)}
 
     for _ in range(num_simulations):
         heads_count = sum(random.choice([0, 1]) for _ in range(10))
         counts[heads_count] += 1
+        print(heads_count)
 
     percentages = {
         k: round((v / num_simulations) * 100, 2)
@@ -30,5 +29,5 @@ def draw_gaussian_distribution_graph(counts: dict) -> None:
     plt.show()
 
 
-result = flip_coin(10000)
+result = flip_coin(50000)
 draw_gaussian_distribution_graph(result)
